@@ -4,7 +4,7 @@ import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
 
-import http from '../../services/Http';
+import api from '../../services/api';
 
 import Header from '../../components/Header';
 
@@ -35,7 +35,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     async function loadTransactions(): Promise<void> {
-      const response = await http.get('/transactions');
+      const response = await api.get('/transactions');
 
       const formatedTransactions = response.data.transactions.map(
         (transaction: Transaction) => ({

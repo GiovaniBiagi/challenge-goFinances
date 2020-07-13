@@ -10,7 +10,7 @@ import Upload from '../../components/Upload';
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
 import alert from '../../assets/alert.svg';
-import http from '../../services/Http';
+import api from '../../services/api';
 
 interface FileProps {
   file: File;
@@ -32,7 +32,7 @@ const Import: React.FC = () => {
     data.append('file', file, name);
 
     try {
-      await http.post('/transactions/import', data);
+      await api.post('/transactions/import', data);
 
       history.push('/');
     } catch (err) {
